@@ -52,7 +52,7 @@ auto read_csv(std::string_view file, F fn, std::string_view delimiter = ",") -> 
 {
     std::ifstream data_file(file.data());
     if (!data_file.is_open())
-		return;
+        return;
 
     std::string line;
     std::getline(data_file, line); // skip the title
