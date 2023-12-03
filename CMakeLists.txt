@@ -8,4 +8,4 @@ add_executable(test examples/test.cpp)
 
 target_include_directories(test PRIVATE include)
 
-# g++ -o build/test examples/test.cpp -std=c++20 -Iinclude 
+# g++ -o build/test examples/test.cpp -Iinclude -std=c++20 
