@@ -2,14 +2,12 @@
 #define CSVPP_CSV_HPP_
 
 #include <fstream> // ifstream
+#include <functional> // invoke
 #include <optional> // optional
 #include <ranges> // views::split, views::transform
 #include <string_view> // string_view
 #include <vector> // vector
 
-#include <algorithm>
-#include <iostream>
-#include <functional>
 
 
 namespace csvpp
@@ -28,11 +26,6 @@ auto read_csv(std::string_view file, std::string_view type = "", std::string_vie
 
     std::string line;
     std::getline(data_file, line); // skip the title
-
-    // Count lines of the file to prevent memory reallocation of std::vector
-    auto lines = std::ranges::count(std::istreambuf_iterator<char>(data_file), std::istreambuf_iterator<char>(), '\n');
-    std::cout << "Number of lines: " << lines << std::endl;
-    
     result_type result;
     while (std::getline(data_file, line))
     {
